@@ -30,7 +30,7 @@ data class BalanceUpdateData(
     val transactionId: String,
     val gameSessionId: String,
     val currency: String,
-    val amount: Long,
+    val amount: ULong,
     val betId: String?,
     val spinMeta: SpinMeta?,
     val betMeta: BetMeta?,

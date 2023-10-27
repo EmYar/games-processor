@@ -8,7 +8,7 @@ sealed class BalanceUpdateResponse : Response() {
     abstract val isSuccess: Boolean
     abstract val error: String
     abstract val errorMsg: BalanceUpdateResponseErrors
-    abstract val data: BalanceUpdateData
+    abstract val data: BalanceUpdateData?
 }
 
 @Serializable
@@ -17,7 +17,7 @@ data class DebitResponse(
     override val isSuccess: Boolean,
     override val error: String,
     override val errorMsg: BalanceUpdateResponseErrors,
-    override val data: BalanceUpdateData,
+    override val data: BalanceUpdateData?,
 ) : BalanceUpdateResponse()
 
 @Serializable
@@ -26,7 +26,7 @@ data class CreditResponse(
     override val isSuccess: Boolean,
     override val error: String,
     override val errorMsg: BalanceUpdateResponseErrors,
-    override val data: BalanceUpdateData,
+    override val data: BalanceUpdateData?,
 ) : BalanceUpdateResponse()
 
 @Serializable
@@ -35,7 +35,7 @@ data class RollbackResponse(
     override val isSuccess: Boolean,
     override val error: String,
     override val errorMsg: BalanceUpdateResponseErrors,
-    override val data: BalanceUpdateData,
+    override val data: BalanceUpdateData?,
 ) : BalanceUpdateResponse()
 
 @Serializable

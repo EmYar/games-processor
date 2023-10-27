@@ -9,14 +9,14 @@ import java.util.*
 object Balances : UUIDTable() {
     val player = reference("player", Players).uniqueIndex()
     val currency = reference("currency", Currencies)
-    val amount = long("amount")
+    val amount = ulong("amount")
 }
 
 class Balance(id: EntityID<UUID>) : UUIDEntity(id) {
     companion object : UUIDEntityClass<Balance>(Balances)
 
     val player by Player referencedOn Balances.player
-    val currency by Balances.currency
+    val currency by Currency referencedOn Balances.currency
     var amount by Balances.amount
     val transactions by Transaction referrersOn Transactions.balance
 }
