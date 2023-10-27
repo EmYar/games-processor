@@ -14,6 +14,6 @@ object Transactions : UUIDTable() {
 class Transaction(id: EntityID<UUID>) : UUIDEntity(id) {
     companion object : UUIDEntityClass<Transaction>(Transactions)
 
-    val balance by Transactions.balance
-    val amount by Transactions.balance
+    val balance by Balance referencedOn Transactions.balance
+    val amount by Transactions.amount
 }

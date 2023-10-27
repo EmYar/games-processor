@@ -14,6 +14,6 @@ object GameSessions : UUIDTable() {
 class GameSession(id: EntityID<UUID>) : UUIDEntity(id) {
     companion object : UUIDEntityClass<GameSession>(GameSessions)
 
-    var player by GameSessions.player
+    var player by Player referencedOn GameSessions.player
     var isActive by GameSessions.isActive
 }

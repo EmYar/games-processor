@@ -15,7 +15,7 @@ object Balances : UUIDTable() {
 class Balance(id: EntityID<UUID>) : UUIDEntity(id) {
     companion object : UUIDEntityClass<Balance>(Balances)
 
-    val player by Balances.player
+    val player by Player referencedOn Balances.player
     val currency by Balances.currency
     var amount by Balances.amount
     val transactions by Transaction referrersOn Transactions.balance
