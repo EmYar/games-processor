@@ -12,9 +12,9 @@ data class BalanceResponse(
 @Serializable
 data class BalanceResponseData(
     val userNick: String,
-    val amount: Long,
-    val denomination: Byte,
-    val maxWin: Long,
+    val amount: ULong,
+    val denomination: UByte,
+    val maxWin: ULong,
     val currency: String,
     val userId: String,
     val jpKey: String?,

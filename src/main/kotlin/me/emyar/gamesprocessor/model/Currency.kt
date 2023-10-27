@@ -12,7 +12,12 @@ object Currencies : UUIDTable() {
 }
 
 class Currency(id: EntityID<UUID>) : UUIDEntity(id) {
-    companion object : UUIDEntityClass<Currency>(Currencies)
+    companion object : UUIDEntityClass<Currency>(Currencies) {
+
+        fun findByCode(code: String) =
+            find { Currencies.code eq code }
+                .firstOrNull()
+    }
 
     val code by Currencies.code
     val denomination by Currencies.denomination
